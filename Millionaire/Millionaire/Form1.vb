@@ -14,11 +14,14 @@ Public Class Form1
         Dim balance As Double, numYears As Integer
         balance = CDbl(amountSt)
 
+        Dim r As Double = 0.06
         ' Compute the time it takes to reach the balance of a million
-        Do While balance < 1000000
-            balance += 0.06 * balance
+
+        Do
+            balance += r * balance
             numYears += 1
-        Loop
+
+        Loop Until balance < 1000000
 
         txtWhen.Text = "In " & numYears & " years you will have a million dollars."
     End Sub
